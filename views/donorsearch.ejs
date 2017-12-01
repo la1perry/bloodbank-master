@@ -1,0 +1,72 @@
+<%- include layouts/header.ejs %>
+
+        <div class="page-data">
+         <!-- <div class="data-btn"> -->
+                <!-- <a class="a-inside add" href="../employees/empadd">Add</a> -->
+                
+         <!-- </div> -->
+         <form method="post" action="/donorsearch">
+            <table cellpadding="11">
+                    <tr>
+                            <td class="label">Donor ID</td><td>: <input type="text" name="id" required></td>
+                         </tr>
+                         <tr>
+                             <td><input type="submit" name="submit" value="Search"></td>
+                         </tr>
+                        </table>
+                    </form>
+
+         <div class="data-table">
+            <table border="1" cellpadding="7" cellspacing="7">
+                <tr>
+                    <!-- <th width="50px">No</th> -->
+                    <th>Donor ID</th>
+                    <th>Donation Id</th>
+                    <th>Name</th>
+                    <th>Sex</th>
+                    <th>Age</th>
+                    <th>Address</th>
+                    <th>Phone</th>
+                    <th>Code</th>
+                    <th>Bloodbank ID</th>
+                    <th>Type</th>
+                    <th>Cost</th>
+                    <th>Amount</th>
+                    
+                </tr>
+                               
+                <% if(data.length){ 
+                                
+                 for(var i = 0;i < data.length;i++) { %>
+                 
+                <tr>
+                    <!-- <td><%=(i+1)%></td> -->
+                    <td><%=data[i].donorid%></td>
+                    <td><%=data[i].donationid%></td>
+                    <td><%=data[i].name%></td>
+                    <td><%=data[i].sex%></td>
+                    <td><%=data[i].age%></td>
+                    <td><%=data[i].address%></td>
+                    <td><%=data[i].phone%></td>
+                    <td><%=data[i].code%></td>
+                    <td><%=data[i].bloodbank%></td>
+                    <td><%=data[i].type%></td>
+                    <td><%=data[i].cost%></td>
+                    <td><%=data[i].amount%></td>
+                   
+                </tr>
+            <% }
+            
+             }else{ %>
+                 <tr>
+                    <td colspan="3">No user</td>
+                 </tr>
+            <% } %>
+                
+                              
+                
+            </table>
+         </div>
+        </div>
+        
+<%- include layouts/footer.ejs %>

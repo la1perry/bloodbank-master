@@ -1,0 +1,57 @@
+<%- include layouts/header.ejs %>
+
+        <div class="page-data">
+         <!-- <div class="data-btn"> -->
+                <!-- <a class="a-inside add" href="../employees/empadd">Add</a> -->
+                
+         <!-- </div> -->
+         <form method="post" action="/bulksearch">
+            <table cellpadding="11">
+                    <tr>
+                            <td class="label">Blood Type</td><td>: <input type="text" name="type" required></td>
+                         </tr>
+                         <tr>
+                             <td><input type="submit" name="submit" value="Search"></td>
+                         </tr>
+                        </table>
+                    </form>
+
+         <div class="data-table">
+            <table border="1" cellpadding="7" cellspacing="7">
+                <tr>
+                    <!-- <th width="50px">No</th> -->
+                    <th>Bloodbank Id</th>
+                    <th>Name</th>
+                    <th>Type</th>
+                    <th>Amount</th>
+                  
+                </tr>
+                               
+                <% if(data.length){ 
+                                
+                 for(var i = 0;i < data.length;i++) { %>
+                 
+                <tr>
+                    <!-- <td><%=(i+1)%></td> -->
+                    <td><%=data[i].id%></td>
+                    <td><%=data[i].name%></td>
+                    <td><%=data[i].type%></td>
+                    <td><%=data[i].amount%></td>
+                   
+                
+                </tr>
+            <% }
+            
+             }else{ %>
+                 <tr>
+                    <td colspan="3">No user</td>
+                 </tr>
+            <% } %>
+                
+                              
+                
+            </table>
+         </div>
+        </div>
+        
+<%- include layouts/footer.ejs %>
